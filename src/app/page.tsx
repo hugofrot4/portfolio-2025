@@ -10,6 +10,14 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
 
 
 export default function Home() {
@@ -20,7 +28,9 @@ export default function Home() {
           <AvatarImage src="/hugo-avatar2.jpeg" />
           <AvatarFallback>Hugo</AvatarFallback>
         </Avatar>
-        <h1 className={`${spaceGrotesk.className} text-5xl font-bold mt-6 text-center`}>
+        <h1
+          className={`${spaceGrotesk.className} text-5xl font-bold mt-6 text-center`}
+        >
           Olá, Eu sou o Hugo.
         </h1>
         <p className={`${inter.className} mt-2 tracking-widest`}>
@@ -49,41 +59,22 @@ export default function Home() {
         </h2>
         <Carousel className="mt-4">
           <CarouselContent className="-ml-4">
-            <CarouselItem className="basis-[200px] md:basis-1/3 pl-4">
-              <div className="flex flex-1 aspect-square border rounded bg-gray-400">
-
-              </div>
-            </CarouselItem>
-            <CarouselItem className="basis-[200px] md:basis-1/3 pl-4">
-              <div className="flex flex-1 aspect-square border rounded bg-gray-400">
-
-              </div>
-            </CarouselItem>
-            <CarouselItem className="basis-[200px] md:basis-1/3 pl-4">
-              <div className="flex flex-1 aspect-square border rounded bg-gray-400">
-
-              </div>
-            </CarouselItem>
-            <CarouselItem className="basis-[200px] md:basis-1/3 pl-4">
-              <div className="flex flex-1 aspect-square border rounded bg-gray-400">
-
-              </div>
-            </CarouselItem>
-            <CarouselItem className="basis-[200px] md:basis-1/3 pl-4">
-              <div className="flex flex-1 aspect-square border rounded bg-gray-400">
-
-              </div>
-            </CarouselItem>
-            <CarouselItem className="basis-[200px] md:basis-1/3 pl-4">
-              <div className="flex flex-1 aspect-square border rounded bg-gray-400">
-
-              </div>
-            </CarouselItem>
-            <CarouselItem className="basis-[200px] md:basis-1/3 pl-4">
-              <div className="flex flex-1 aspect-square border rounded bg-gray-400">
-
-              </div>
-            </CarouselItem>
+            <Dialog>
+              <DialogTrigger className="basis-[200px] md:basis-1/3">
+                <CarouselItem className="basis-[200px] md:basis-1/3 pl-4">
+                  <div className="flex flex-1 aspect-square border rounded bg-gray-400"></div>
+                </CarouselItem>
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Nome do projeto</DialogTitle>
+                  <DialogDescription>
+                    This action cannot be undone. This will permanently delete
+                    your account and remove your data from our servers.
+                  </DialogDescription>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
           </CarouselContent>
           <CarouselPrevious className="hidden md:flex" />
           <CarouselNext className="hidden md:flex" />
