@@ -17,17 +17,31 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-
+} from "@/components/ui/dialog";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <div className="py-30">
       <div className="flex flex-col items-center max-w-[900px] mx-4 md:mx-auto ">
-        <Avatar className="w-[200px] h-[200px]">
-          <AvatarImage src="/hugo-avatar2.jpeg" />
-          <AvatarFallback>Hugo</AvatarFallback>
-        </Avatar>
+        <div className="group w-48 h-48 [perspective:1000px]">
+          <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+            <Avatar className="absolute w-full h-full [backface-visibility:hidden]">
+              <AvatarImage
+                className="w-full h-full object-cover rounded-xl"
+                src="/hugo-avatar2.jpeg"
+              />
+              <AvatarFallback>Hugo</AvatarFallback>
+            </Avatar>
+            <Avatar className="absolute w-full h-full [backface-visibility:hidden] [transform:rotateY(180deg)]">
+              <AvatarImage
+                className="w-full h-full object-cover rounded-xl"
+                src="/hugo-avatar.png"
+              />
+              <AvatarFallback>Hugo</AvatarFallback>
+            </Avatar>
+          </div>
+        </div>
         <h1
           className={`${spaceGrotesk.className} text-5xl font-bold mt-6 text-center`}
         >
@@ -62,17 +76,37 @@ export default function Home() {
             <Dialog>
               <DialogTrigger className="basis-[200px] md:basis-1/3">
                 <CarouselItem className="basis-[200px] md:basis-1/3 pl-4">
-                  <div className="flex flex-1 aspect-square border rounded bg-gray-400"></div>
+                  <Image
+                    alt="Portfolio image"
+                    src={"https://picsum.photos/1000/1000/?random&t=1"}
+                    width={1000}
+                    height={1000}
+                    className="w-full md:h-full md:order-1 rounded"
+                  />
                 </CarouselItem>
               </DialogTrigger>
-              <DialogContent>
-                <DialogHeader>
+              <DialogContent className="md:grid md:grid-cols-2 md:min-w-[60vw] md:gap-5">
+                <DialogHeader className="md:order-2">
                   <DialogTitle>Nome do projeto</DialogTitle>
                   <DialogDescription>
-                    This action cannot be undone. This will permanently delete
-                    your account and remove your data from our servers.
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Delectus aspernatur sapiente totam harum itaque provident
+                    labore laboriosam. In pariatur sint vero atque explicabo sed
+                    mollitia. Illo beatae id vitae ex.
                   </DialogDescription>
+                  <ul className="list-disc ml-5">
+                    <li>Lorem ipsum</li>
+                    <li>Lorem ipsum</li>
+                    <li>Lorem ipsum</li>
+                  </ul>
                 </DialogHeader>
+                <Image
+                  alt="Portfolio image"
+                  src={"https://picsum.photos/1000/1000/?random&t=1"}
+                  width={1000}
+                  height={1000}
+                  className="w-full md:h-full md:order-1"
+                />
               </DialogContent>
             </Dialog>
           </CarouselContent>
